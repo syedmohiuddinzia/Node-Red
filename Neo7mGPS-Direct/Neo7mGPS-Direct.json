@@ -1,0 +1,332 @@
+[
+    {
+        "id": "b3cdfc37265dba24",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fdf528aa7c448b35",
+        "type": "serial-port",
+        "serialport": "COM11",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "51170d4331abea25",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "d02b1c8ad04e15f7",
+        "type": "firebase config",
+        "firebaseurl": "spring-bonfire-316807-default-rtdb",
+        "loginType": "none"
+    },
+    {
+        "id": "8db3fac0.99dd48",
+        "type": "mqtt-broker",
+        "name": "SMZia",
+        "broker": "172.28.96.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "29c937bf0e4861e7",
+        "type": "ui_tab",
+        "name": "Custom Map",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "612d22ee9f8a7b14",
+        "type": "ui_group",
+        "name": "Custom map",
+        "tab": "29c937bf0e4861e7",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c19b6d269e068de1",
+        "type": "ui_group",
+        "name": "Switch",
+        "tab": "933e36c8a3676f9a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "84c0d29e4ea72d09",
+        "type": "ui_group",
+        "name": "Guage",
+        "tab": "29c937bf0e4861e7",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "933e36c8a3676f9a",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b4b066354a2ea2b6",
+        "type": "serial in",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "serial": "fdf528aa7c448b35",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "f6264a5b5d59d08b"
+            ]
+        ]
+    },
+    {
+        "id": "5c475d5097893a1d",
+        "type": "debug",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f6264a5b5d59d08b",
+        "type": "nmea",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "property": "payload",
+        "outputProperty": "payload",
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "9a4ce19e6ff2149b"
+            ]
+        ]
+    },
+    {
+        "id": "9a4ce19e6ff2149b",
+        "type": "switch",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "property": "payload.sentence",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "GGA",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "7a4e1fb24b3202f4"
+            ]
+        ]
+    },
+    {
+        "id": "7a4e1fb24b3202f4",
+        "type": "function",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "func": "msg.payload = { \"name\":\"smzia\", \"lat\":msg.payload.lat, \"lon\":msg.payload.lon }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "5c475d5097893a1d",
+                "4fc0503a64f8074c"
+            ]
+        ]
+    },
+    {
+        "id": "4fc0503a64f8074c",
+        "type": "worldmap",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "lat": "24.851467",
+        "lon": "67.08778417",
+        "zoom": "15",
+        "layer": "OSMG",
+        "cluster": "15",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 660,
+        "y": 320,
+        "wires": []
+    }
+]
