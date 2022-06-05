@@ -14,7 +14,7 @@ During the 1990s, GPS quality was degraded by the United States government in a 
 **2. GPS Neo6/7 (Hardware)** </br>
 **3. Antenna (Optional)** </br>
 
-# Schematic
+# Neo 7m
 
 ![Neo7mGPS-Direct](https://github.com/syedmohiuddinzia/Node-Red/blob/main/Neo7mGPS-Direct/HTB11KBLGQKWBuNjy1zjq6AOypXaV.webp)
 
