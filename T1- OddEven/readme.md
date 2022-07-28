@@ -1,10 +1,10 @@
 # Serial Communication
 
-In telecommunication and data transmission, serial communication is the process of sending data one bit at a time, sequentially, over a communication channel or computer bus. This is in contrast to parallel communication, where several bits are sent as a whole, on a link with several parallel channels. Serial communication is used for all long-haul communication and most computer networks, where the cost of cable and synchronization difficulties make parallel communication impractical. Serial computer buses are becoming more common even at shorter distances, as improved signal integrity and transmission speeds in newer serial technologies have begun to outweigh the parallel bus's advantage of simplicit </div>
+In telecommunication and data transmission, serial communication is the process of sending data one bit at a time, sequentially, over a communication channel or computer bus. This is in contrast to parallel communication, where several bits are sent as a whole, on a link with several parallel channels. Serial communication is used for all long-haul communication and most computer networks, where the cost of cable and synchronization difficulties make parallel communication impractical. Serial computer buses are becoming more common even at shorter distances, as improved signal integrity and transmission speeds in newer serial technologies have begun to outweigh the parallel bus's advantage of simplicity </div>
 
 # Requirements
 
-**1. Windows OS** </br>
+**1. Windows, Linux OS** </br>
 **2. Arduino IDE** </br>
 **3. Node Red** </br>
 **4. ESP32 MCU** </br>
@@ -39,18 +39,176 @@ Upload the arduino code in ESP32 MCU. </br>
 **Step 4.** </br>
 Open Node-Red application by writing 'node-red' on cmd in windows or terminal on linux os. </br>
 **Step 5.** </br>
-![ProteusSimulationBluetoothInstruction5](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/5.png)</br>
+Copy JSON code given below and import in Node-Red application. </br>
+```
+[
+    {
+        "id": "eb5ad423c8fbc05f",
+        "type": "serial in",
+        "z": "58d163b8c6dfbfe1",
+        "name": "ESP32 Serial Port",
+        "serial": "fdf528aa7c448b35",
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [
+                "4911ad2980dc5857"
+            ]
+        ]
+    },
+    {
+        "id": "3872072e6dc7b89f",
+        "type": "function",
+        "z": "58d163b8c6dfbfe1",
+        "name": "OddEven",
+        "func": "if(msg.payload===\"odd\")\n{\nmsg.data={flag:msg.payload, number}\n}\nelse if(msg.payload===\"even\")\n{\nmsg.data={flag:msg.payload, number}\n}\nelse\n{\nnumber=Number(msg.payload)\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "d3e90b530c6fd0ed"
+            ]
+        ]
+    },
+    {
+        "id": "4911ad2980dc5857",
+        "type": "function",
+        "z": "58d163b8c6dfbfe1",
+        "name": "Trim",
+        "func": "msg.payload = msg.payload.trim();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "3872072e6dc7b89f"
+            ]
+        ]
+    },
+    {
+        "id": "0ecb86781f8f4b49",
+        "type": "debug",
+        "z": "58d163b8c6dfbfe1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "data",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d3e90b530c6fd0ed",
+        "type": "switch",
+        "z": "58d163b8c6dfbfe1",
+        "name": "",
+        "property": "data",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "0ecb86781f8f4b49",
+                "e107660e8405e834",
+                "59364d1f2a06c892"
+            ]
+        ]
+    },
+    {
+        "id": "e107660e8405e834",
+        "type": "ui_text",
+        "z": "58d163b8c6dfbfe1",
+        "group": "d7b74e7766b2aae6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Flag",
+        "label": "Flag",
+        "format": "{{msg.data.flag}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 570,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "59364d1f2a06c892",
+        "type": "ui_text",
+        "z": "58d163b8c6dfbfe1",
+        "group": "d7b74e7766b2aae6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Number",
+        "label": "Number",
+        "format": "{{msg.data.number}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 580,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "fdf528aa7c448b35",
+        "type": "serial-port",
+        "serialport": "COM3",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "d7b74e7766b2aae6",
+        "type": "ui_group",
+        "name": "Odd or Even",
+        "tab": "f56dcd513927ea2d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f56dcd513927ea2d",
+        "type": "ui_tab",
+        "name": "Odd or Even",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
+```
 **Step 6.** </br>
-![ProteusSimulationBluetoothInstruction6](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/6.png)</br>
-**Step 7.** </br>
-![ProteusSimulationBluetoothInstruction7](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/7.png)</br>
-**Step 8.** </br>
-![ProteusSimulationBluetoothInstruction8](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/8.png)</br>
-**Step 9.** </br>
-![ProteusSimulationBluetoothInstruction9](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/9.png)</br>
-**Step 10.** </br>
-![ProteusSimulationBluetoothInstruction10](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/10.png)</br>
-**Step 11.** </br>
-![ProteusSimulationBluetoothInstruction11](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/11.png)</br>
-**Step 12.** </br>
-![ProteusSimulationBluetoothInstruction12](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/12.png)</br>
+Deploy the Node-Red.
