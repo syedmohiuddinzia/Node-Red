@@ -13,9 +13,9 @@ In telecommunication and data transmission, serial communication is the process 
 # Instructions
 
 **Step 1.** </br>
-Open Arduino IDE, select ESP32 MCU board (Dev Module) and the right serial port from tools menu. 
+Open Arduino IDE, select ESP32 MCU board (Dev Module) and the right serial port from tools menu. </br>
 **Step 2.** </br>
-Copy Arduino code given below in Arduino IDE.
+Copy Arduino code given below in Arduino IDE. </br>
 ```
 void setup() 
 {
@@ -33,10 +33,11 @@ void loop()
    count++;
    delay(2000);
 }
+```
 **Step 3.** </br>
-Upload the arduino code in ESP32 MCU.
+Upload the arduino code in ESP32 MCU. </br>
 **Step 4.** </br>
-Open Node-Red application by writing 'node-red' on cmd in windows or terminal on linux os.
+Open Node-Red application by writing 'node-red' on cmd in windows or terminal on linux os. </br>
 **Step 5.** </br>
 ![ProteusSimulationBluetoothInstruction5](https://github.com/syedmohiuddinzia/ProteusSimulationBluetooth/blob/main/BluetoothConnectionInstructions/5.png)</br>
 **Step 6.** </br>
