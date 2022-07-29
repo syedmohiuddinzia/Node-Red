@@ -15,7 +15,7 @@
 
 # Working
 
-![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/2.PNG =250x) </br>
+![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/2.PNG) </br>
 
 ESP32 Node MCU (Microcontroller Unit) processes a program in which a count increments after each two seconds. And a value of count is modulus division by 2, if it is 1 then "odd" is saved in flag else if it is 0 then "even" is saved in flag. A function of JSON transmit is created that contains labels for **count** and **flag**. These two labels are packet and transmitted after each time main loop runs. </br>
 
