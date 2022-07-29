@@ -14,7 +14,7 @@ In telecommunication and data transmission, serial communication is the process 
 
 ESP32 Node MCU (Microcontroller Unit) processes a program in which a count increments after each two seconds. And a value of count is modulus division by 2, if it is 1 then "odd" is saved in flag else if it is 0 then "even" is saved in flag. And then count and flag variables are printed in new lines after each time main loop runs.
 
-In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The data read is is printed in **Debug Node** 
+In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The data read is printed in **Debug Node** separately after each line but has an enter symbol binded with it, therefore first we need to remove it.
 
 # Instructions
 
