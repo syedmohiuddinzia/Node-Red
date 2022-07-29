@@ -19,7 +19,7 @@ In telecommunication and data transmission, serial communication is the process 
 
 # Working
 
-![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T1-%20OddEven/2.PNG)
+![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/2.PNG)
 
 ESP32 Node MCU (Microcontroller Unit) processes a program in which a count increments after each two seconds. And a value of count is modulus division by 2, if it is 1 then "odd" is saved in flag else if it is 0 then "even" is saved in flag. A function of JSON transmit is created that contains labels for **count** and **flag**. These two labels are packet and transmitted after each time main loop runs. </br>
 
@@ -28,11 +28,17 @@ In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The
 msg.payload = msg.payload.trim();
 return msg;
 ```
-This **Function Node** is connected right **↵** after the **Serial Node**. If **Debug Node** is connected after the function node then the each data is received separately without enter symbol. Now the data received looks organized but is in a string form therefore we need is to convert it into objects. For this reason a JSON node is connected right after the function and the data will be converted to objects that can be further used as wanted. 
+This **Function Node** is connected right **↵** after the **Serial Node**. If **Debug Node** is connected after the function node then the each data is received separately without enter symbol. </br>
+
+![Data1](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/3.PNG) </br>
+
+Now the data received looks organized but is in a string form therefore we need is to convert it into objects. For this reason a JSON node is connected right after the function and the data will be converted to objects that can be further used as wanted. </br>
+
+![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/4.PNG) </br>
 
 At an end a dashboard is built by using two text display nodes. One text node will display a Number and the second text node will display a Flag as shown below. </br>
 
-![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T1-%20OddEven/1.PNG)
+https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/1.PNG) </br>
 
 # Instructions
 
