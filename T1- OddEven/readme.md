@@ -12,10 +12,11 @@ In telecommunication and data transmission, serial communication is the process 
 
 # Working
 
-![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T1-%20OddEven/2.PNG) </br>
-ESP32 Node MCU (Microcontroller Unit) processes a program in which a count increments after each two seconds. And a value of count is modulus division by 2, if it is 1 then "odd" is saved in flag else if it is 0 then "even" is saved in flag. And then count and flag variables are printed in new lines after each time main loop runs.
+![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T1-%20OddEven/2.PNG)
 
-In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The data read is printed in **Debug Node** separately after each line but has an enter symbol binded with it, therefore first we need to remove it. For removing the enter **↵** symbol, a **Function Node** is used and below given javascript program is to be written in it.
+ESP32 Node MCU (Microcontroller Unit) processes a program in which a count increments after each two seconds. And a value of count is modulus division by 2, if it is 1 then "odd" is saved in flag else if it is 0 then "even" is saved in flag. And then count and flag variables are printed in new lines after each time main loop runs. </br>
+
+In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The data read is printed in **Debug Node** separately after each line but has an enter symbol binded with it, therefore first we need to remove it. For removing the enter **↵** symbol, a **Function Node** is used and below given javascript program is to be written in it. </br>
 ```
 msg.payload = msg.payload.trim();
 return msg;
