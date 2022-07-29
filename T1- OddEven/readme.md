@@ -39,6 +39,9 @@ return msg
 ```
 Now the data is converted to objects that can be further used as wanted. 
 
+At an end a dashboard is built by using two text display nodes. One text node will display a Number and the second text node will display a Flag as shown below.
+![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T1-%20OddEven/1.PNG)
+
 # Instructions
 
 **Step 1.** </br>
