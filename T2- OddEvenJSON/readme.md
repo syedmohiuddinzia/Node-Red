@@ -30,11 +30,11 @@ This **Function Node** is connected right **↵** after the **Serial Node**. If 
 
 Now the data received looks organized but is in a string form therefore we need is to convert it into objects. For this reason a JSON node is connected right after the function and the data will be converted to objects that can be further used as wanted. </br>
 
-![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/4.PNG) </br>
+![Data2](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/4.PNG) </br>
 
 At an end a dashboard is built by using two text display nodes. One text node will display a Number and the second text node will display a Flag as shown below. </br>
 
-https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/1.PNG) </br>
+![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T2-%20OddEvenJSON/1.PNG) </br>
 
 # Instructions
 
