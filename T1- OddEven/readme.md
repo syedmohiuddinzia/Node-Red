@@ -14,7 +14,28 @@ In telecommunication and data transmission, serial communication is the process 
 
 ESP32 Node MCU (Microcontroller Unit) processes a program in which a count increments after each two seconds. And a value of count is modulus division by 2, if it is 1 then "odd" is saved in flag else if it is 0 then "even" is saved in flag. And then count and flag variables are printed in new lines after each time main loop runs.
 
-In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The data read is printed in **Debug Node** separately after each line but has an enter symbol binded with it, therefore first we need to remove it.
+In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The data read is printed in **Debug Node** separately after each line but has an enter symbol binded with it, therefore first we need to remove it. For removing the enter **↵** symbol, a **Function Node** is used and below given javascript program is to be written in it.
+```
+msg.payload = msg.payload.trim();
+return msg;
+```
+This **Function Node** is connected right **↵** after the **Serial Node**. If **Debug Node** is connected after the function node then the each data is received separately without enter symbol. Now the data received is not saved in a variable therefore we need to save it in two different variables. The flag variable will either have "odd" or "even" and number variable will have a number. For this purpose another **Function Node** is connected at the end of first **Function Node**. It changes msg.payload to msg.data={flag:"xxxx", number:xxxx}.
+```
+if(msg.payload==="odd")
+{
+msg.data={flag:msg.payload, number}
+}
+else if(msg.payload==="even")
+{
+msg.data={flag:msg.payload, number}
+}
+else
+{
+number=Number(msg.payload)
+}
+return msg
+```
+Now the data is converted to objects that can be further used as wanted. 
 
 # Instructions
 
