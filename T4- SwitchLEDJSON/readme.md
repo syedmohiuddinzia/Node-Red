@@ -15,7 +15,7 @@
 
 # Working
 
-![NodesArchitecture](https://file:///home/usama/Downloads/github/4-ledswitchjson/2.PNG?raw==true) </br>
+![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T4-%20SwitchLEDJSON/4.PNG) </br>
 
 We need to convert it into objects. For this reason a JSON node is connected right after the function and the data will be converted to objects that can be further used as wanted. ESP32 Node MCU (Microcontroller Unit) processes a program in which we  switching LED connecting at output pin containing two main scenarios (HIGH defined by 0) and (LOW defined by 1) when our input is high it give data to controller and controller give the 5v to our output led and shown the message at msg.playload is **0** which means High and vice versa. These two labels are packet and transmitted after each time input is given by user and main loop runs. </br>
 
@@ -27,15 +27,15 @@ return msg;
 This **Function Node** is connected right **↵** after the **Serial Node**. If **Debug Node** is connected after the function node then the each data is received separately without enter symbol. </br> -->
 The output on display screen have two cases one is for **power: 0** which means LED is glowing and other is **power 1** which means led is turn off
 
-![Data1](https://home/usama/Downloads/github/4-ledswitchjson/3.PNG?raw==True) </br>
+![Data1](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T4-%20SwitchLEDJSON/2.PNG) </br>
 
 Now the data received looks organized in form when input is HIGH it shows High in output screen in contineously until the second input could'nt given . </br>
 
-![Data2](https://file:///home/usama/Downloads/github/4-ledswitchjson/4.PNG?raw==True) </br>
+![Data2](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T4-%20SwitchLEDJSON/3.PNG) </br>
 
 At an end a dashboard is built by using two text display nodes. One text node will display a HIGH state button and the second text node will display a LOW state button as shown below. </br>
 
-![Dashboard](http://home/usama/Downloads/github/4-ledswitchjson/1.PNG?raw==True) </br>
+![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T4-%20SwitchLEDJSON/1.PNG) </br>
 
 # Instructions
 
