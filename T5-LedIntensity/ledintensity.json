@@ -1,0 +1,129 @@
+[
+    {
+        "id": "58d163b8c6dfbfe1",
+        "type": "tab",
+        "label": "OddEven (Simple)",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "dc3769e405b793fa",
+        "type": "serial out",
+        "z": "58d163b8c6dfbfe1",
+        "name": "ESP32 Serial Port",
+        "serial": "fdf528aa7c448b35",
+        "x": 390,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "da8f99e112820657",
+        "type": "debug",
+        "z": "58d163b8c6dfbfe1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8be7bee48c69d77d",
+        "type": "ui_slider",
+        "z": "58d163b8c6dfbfe1",
+        "name": "Intensity",
+        "label": "Intensity",
+        "tooltip": "",
+        "group": "d7b74e7766b2aae6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "255",
+        "step": 1,
+        "className": "",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "dc3769e405b793fa",
+                "da8f99e112820657"
+            ]
+        ]
+    },
+    {
+        "id": "4251cb74d74b2740",
+        "type": "ui_text_input",
+        "z": "58d163b8c6dfbfe1",
+        "name": "",
+        "label": "Intensity",
+        "tooltip": "",
+        "group": "d7b74e7766b2aae6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "dc3769e405b793fa",
+                "da8f99e112820657"
+            ]
+        ],
+        "icon": "node-red/arrow-in.svg"
+    },
+    {
+        "id": "fdf528aa7c448b35",
+        "type": "serial-port",
+        "serialport": "COM4",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "d7b74e7766b2aae6",
+        "type": "ui_group",
+        "name": "ESP32 BuiltIn LED",
+        "tab": "08d00e0951b9a3d3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "08d00e0951b9a3d3",
+        "type": "ui_tab",
+        "name": "Switch LED",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
