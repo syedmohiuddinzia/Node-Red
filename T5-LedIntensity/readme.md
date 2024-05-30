@@ -1,10 +1,3 @@
-# JSON (JavaScript object notation syntax) </br>
-
-+ JSON stands for JavaScript Object Notation
-+ JSON is a lightweight format for storing and transporting data
-+ JSON is often used when data is sent from a server to a web page
-+ JSON is "self-describing" and easy to understand
-
 # Requirements
 
 **1. Windows, Linux OS** </br>
@@ -15,7 +8,7 @@
 
 # Working
 
-![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T4-%20SwitchLEDJSON/4.PNG) </br>
+![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/4.PNG) </br>
 
 We need to convert it into objects. For this reason a JSON node is connected right after the function and the data will be converted to objects that can be further used as wanted. ESP32 Node MCU (Microcontroller Unit) processes a program in which we  switching LED connecting at output pin containing two main scenarios (HIGH defined by 0) and (LOW defined by 1) when our input is high it give data to controller and controller give the 5v to our output led and shown the message at msg.playload is **0** which means High and vice versa. These two labels are packet and transmitted after each time input is given by user and main loop runs. </br>
 
@@ -27,15 +20,15 @@ return msg;
 This **Function Node** is connected right **↵** after the **Serial Node**. If **Debug Node** is connected after the function node then the each data is received separately without enter symbol. </br> -->
 The output on display screen have two cases one is for **power: 0** which means LED is glowing and other is **power 1** which means led is turn off
 
-![Data1](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T4-%20SwitchLEDJSON/2.PNG) </br>
+![Data1](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/2.PNG) </br>
 
 Now the data received looks organized in form when input is HIGH it shows High in output screen in contineously until the second input could'nt given . </br>
 
-![Data2](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T4-%20SwitchLEDJSON/3.PNG) </br>
+![Data2](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/3.PNG) </br>
 
 At an end a dashboard is built by using two text display nodes. One text node will display a HIGH state button and the second text node will display a LOW state button as shown below. </br>
 
-![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T4-%20SwitchLEDJSON/1.PNG) </br>
+![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/2.PNG) </br>
 
 # Instructions
 
@@ -44,34 +37,25 @@ Open Arduino IDE, select ESP32 MCU board (Dev Module) and the right serial port 
 **Step 2.** </br>
 Copy Arduino code given below in Arduino IDE. </br>
 ```
-#include <ArduinoJson.h>
+char incomingByte;
+String incomingString;
 #define ledpin 2 //defining the OUTPUT pin for LED
-int intensity;
+int intensity=0; 
 
 void setup() {
   Serial.begin(115200);
   pinMode(ledpin,OUTPUT);
   }
 
-void loop() 
-{
-  Receive();
-  analogWrite(ledpin, intensity);
-}
-
-void Receive()
-{
-  if (Serial.available())
-  {
-    StaticJsonDocument<50> doc;
-    DeserializationError err = deserializeJson(doc, Serial);
-    if (err == DeserializationError::Ok)
-    {
-      intensity = doc["intensity"].as<int>();
-      Serial.println("intensity:"+String(intensity));
-    }
+void loop() {
+  if (Serial.available() > 0) {
+    //incomingByte = Serial.read();
+    //Serial.println(incomingByte);
+    incomingString = Serial.readString();
+    Serial.println(incomingString);
+    intensity=incomingString.toInt();
+    analogWrite(ledpin, intensity);
   }
-  else {while (Serial.available()>0){Serial.read();}}
 }
 ```
 **Step 3.** </br>
@@ -83,33 +67,112 @@ Copy JSON code given below and import in Node-Red application. </br>
 ```
 [
     {
-        "id": "45266e61451c2a6a",
-        "type": "ui_button",
+        "id": "58d163b8c6dfbfe1",
+        "type": "tab",
+        "label": "OddEven (Simple)",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "dc3769e405b793fa",
+        "type": "serial out",
         "z": "58d163b8c6dfbfe1",
-        "name": "Low",
+        "name": "ESP32 Serial Port",
+        "serial": "fdf528aa7c448b35",
+        "x": 390,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "da8f99e112820657",
+        "type": "debug",
+        "z": "58d163b8c6dfbfe1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8be7bee48c69d77d",
+        "type": "ui_slider",
+        "z": "58d163b8c6dfbfe1",
+        "name": "Intensity",
+        "label": "Intensity",
+        "tooltip": "",
         "group": "d7b74e7766b2aae6",
         "order": 0,
         "width": 0,
         "height": 0,
-        "passthru": false,
-        "label": "Low",
-        "tooltip": "",
-        "color": "white",
-        "bgcolor": "red",
-        "className": "",
-        "icon": "",
-        "payload": "{\"power\":0}",
-        "payloadType": "json",
-        "topic": "power",
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
         "topicType": "msg",
-        "x": 190,
-        "y": 140,
+        "min": 0,
+        "max": "255",
+        "step": 1,
+        "className": "",
+        "x": 160,
+        "y": 100,
         "wires": [
             [
                 "dc3769e405b793fa",
                 "da8f99e112820657"
             ]
         ]
+    },
+    {
+        "id": "4251cb74d74b2740",
+        "type": "ui_text_input",
+        "z": "58d163b8c6dfbfe1",
+        "name": "",
+        "label": "Intensity",
+        "tooltip": "",
+        "group": "d7b74e7766b2aae6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "dc3769e405b793fa",
+                "da8f99e112820657"
+            ]
+        ],
+        "icon": "node-red/arrow-in.svg"
+    },
+    {
+        "id": "fdf528aa7c448b35",
+        "type": "serial-port",
+        "serialport": "COM4",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
     },
     {
         "id": "d7b74e7766b2aae6",
