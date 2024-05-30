@@ -6,8 +6,12 @@ The microcontroller generates a pulse-width modulation (PWM) signal with a duty 
 
 For instance, when analogWrite(pin, 127) is invoked, the PWM signal on the designated pin will have a duty cycle of approximately 50%, resulting in an average voltage output of about half the maximum voltage of the board (usually 5V or 3.3V).
 
-_*Syntax:*_ </br>
+_**Syntax:**_ </br>
 analogWrite(pin, value)
+
+_**Parameters:**_ </br>
+pin: the Arduino pin number.
+value: i.e. 0, 127, 1023 etc.
 
 # Requirements
 
@@ -21,7 +25,9 @@ analogWrite(pin, value)
 
 ![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/4.PNG) </br>
 
-We need to convert it into objects. For this reason a JSON node is connected right after the function and the data will be converted to objects that can be further used as wanted. ESP32 Node MCU (Microcontroller Unit) processes a program in which we  switching LED connecting at output pin containing two main scenarios (HIGH defined by 0) and (LOW defined by 1) when our input is high it give data to controller and controller give the 5v to our output led and shown the message at msg.playload is **0** which means High and vice versa. These two labels are packet and transmitted after each time input is given by user and main loop runs. </br>
+ESP32 Node MCU (Microcontroller Unit) processes a program in which we dimming LED connecting at output pin containing multiple scenarios. When our input is 1023 it give data to controller and controller give the (3.3v-esp32, 5v-arduino) to our output led and shown the message at msg.playload is 1023 which means full intensity, the range of numbers is between 0-1023 to change intensity of voltage from 0 to (3.3v-esp32, 5v-arduino) </br>
+
+At an end a dashboard is built by using two text display nodes. One text node will display a HIGH in GREEN and the second text node will display a LOW in RED as shown below. </br>
 
 <!-- In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The data read is printed in **Debug Node** separately after each line but has an enter symbol binded with it, therefore first we need to remove it. For removing the enter **↵** symbol, a **Function Node** is used and below given javascript program is to be written in it. </br>
 ```
