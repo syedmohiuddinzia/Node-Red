@@ -6,7 +6,7 @@ The microcontroller generates a pulse-width modulation (PWM) signal with a duty 
 
 For instance, when analogWrite(pin, 127) is invoked, the PWM signal on the designated pin will have a duty cycle of approximately 50%, resulting in an average voltage output of about half the maximum voltage of the board (usually 5V or 3.3V).
 
-__Syntax:__
+_*Syntax:*_ </br>
 analogWrite(pin, value)
 
 # Requirements
