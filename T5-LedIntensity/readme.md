@@ -1,3 +1,14 @@
+# analogWrite
+
+It operates with two parameters, first parameter designates the pin number where the analog signal will be generated, while the second parameter specifies the desired analog value to be output, typically ranging from 0 to 255.
+
+The microcontroller generates a pulse-width modulation (PWM) signal with a duty cycle corresponding to the analog value provided. This entails rapidly switching the pin between HIGH and LOW states, where the ratio of time spent in the HIGH state to the total period determines the average voltage output. The duty cycle of the PWM signal is directly proportional to the analog value passed to analogWrite().
+
+For instance, when analogWrite(pin, 127) is invoked, the PWM signal on the designated pin will have a duty cycle of approximately 50%, resulting in an average voltage output of about half the maximum voltage of the board (usually 5V or 3.3V).
+
+__Syntax:__
+analogWrite(pin, value)
+
 # Requirements
 
 **1. Windows, Linux OS** </br>
