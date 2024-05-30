@@ -29,12 +29,6 @@ ESP32 Node MCU (Microcontroller Unit) processes a program in which we dimming LE
 
 At an end a dashboard is built by using two text display nodes. One text node will display a HIGH in GREEN and the second text node will display a LOW in RED as shown below. </br>
 
-<!-- In Node Red application **Serial In Node** reads the data of ESP32 Node MCU. The data read is printed in **Debug Node** separately after each line but has an enter symbol binded with it, therefore first we need to remove it. For removing the enter **↵** symbol, a **Function Node** is used and below given javascript program is to be written in it. </br>
-```
-msg.payload = msg.payload.trim();
-return msg;
-```
-This **Function Node** is connected right **↵** after the **Serial Node**. If **Debug Node** is connected after the function node then the each data is received separately without enter symbol. </br> -->
 The output on display screen have two cases one is for **power: 0** which means LED is glowing and other is **power 1** which means led is turn off
 
 ![Data1](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/2.PNG) </br>
@@ -45,7 +39,7 @@ Now the data received looks organized in form when input is HIGH it shows High i
 
 At an end a dashboard is built by using two text display nodes. One text node will display a HIGH state button and the second text node will display a LOW state button as shown below. </br>
 
-![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/2.PNG) </br>
+![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/1.PNG) </br>
 
 # Instructions
 
