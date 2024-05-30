@@ -23,23 +23,23 @@ value: i.e. 0, 127, 1023 etc.
 
 # Working
 
-![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/4.PNG) </br>
+![NodesArchitecture](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/1.PNG) </br>
 
-ESP32 Node MCU (Microcontroller Unit) processes a program in which we dimming LED connecting at output pin containing multiple scenarios. When our input is 1023 it give data to controller and controller give the (3.3v-esp32, 5v-arduino) to our output led and shown the message at msg.playload is 1023 which means full intensity, the range of numbers is between 0-1023 to change intensity of voltage from 0 to (3.3v-esp32, 5v-arduino) </br>
+ESP32 Node MCU (Microcontroller Unit) processes a program in which we can fade or brighten an LED connected at output pin containing multiple scenarios. When our input is 1023 it gives data to controller and controller give the (3.3v-esp32, 5v-arduino) to our output led and shown the message at msg.playload is 1023 which means full intensity, the range of numbers is between 0-1023 to change intensity of voltage from 0 to (3.3v-esp32, 5v-arduino) </br>
 
-At an end a dashboard is built by using two text display nodes. One text node will display a HIGH in GREEN and the second text node will display a LOW in RED as shown below. </br>
+Keep in mind that the number should not exceed the range between 0 - 1024 for both nodes, because for ESP32 the PWM range is this. </br>
 
-The output on display screen have two cases one is for **power: 0** which means LED is glowing and other is **power 1** which means led is turn off
+![Data1](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/3.PNG) </br>
 
-![Data1](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/2.PNG) </br>
-
-Now the data received looks organized in form when input is HIGH it shows High in output screen in contineously until the second input could'nt given . </br>
+Now the data being transmitted looks in this for '' organized in form when input is HIGH it shows High in output screen in contineously until the second input could'nt given . </br>
 
 ![Data2](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/3.PNG) </br>
 
 At an end a dashboard is built by using two text display nodes. One text node will display a HIGH state button and the second text node will display a LOW state button as shown below. </br>
 
 ![Dashboard](https://github.com/syedmohiuddinzia/Node-Red/blob/main/T5-LedIntensity/1.PNG) </br>
+
+ESP32 Node MCU listens to the serial port and analowrites the value that it reads which makes led at pin 2 glow or fade out </br>
 
 # Instructions
 
