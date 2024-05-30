@@ -1,0 +1,256 @@
+[
+    {
+        "id": "b3cdfc37265dba24",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "96d3c553c9c650f0",
+        "type": "serial in",
+        "z": "b3cdfc37265dba24",
+        "name": "ESP32 Serial Port",
+        "serial": "fdf528aa7c448b35",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "eb31344ce05a6644"
+            ]
+        ]
+    },
+    {
+        "id": "4191938793e839c8",
+        "type": "debug",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "eb31344ce05a6644",
+        "type": "json",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 470,
+        "y": 340,
+        "wires": [
+            [
+                "4191938793e839c8",
+                "22af61b1756cf5af",
+                "e2de09f82a72a2b7"
+            ]
+        ]
+    },
+    {
+        "id": "e2de09f82a72a2b7",
+        "type": "ui_text",
+        "z": "b3cdfc37265dba24",
+        "group": "d7b74e7766b2aae6",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Flag",
+        "label": "Flag",
+        "format": "{{msg.payload.flag}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 590,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "22af61b1756cf5af",
+        "type": "ui_text",
+        "z": "b3cdfc37265dba24",
+        "group": "d7b74e7766b2aae6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Number",
+        "label": "Number",
+        "format": "{{msg.payload.count}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 620,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d50ceb0a792b3f95",
+        "type": "serial out",
+        "z": "b3cdfc37265dba24",
+        "name": "ESP32 Serial Port",
+        "serial": "fdf528aa7c448b35",
+        "x": 590,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c77e8c739b8ec640",
+        "type": "debug",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "eeaf744a99240847",
+        "type": "ui_slider",
+        "z": "b3cdfc37265dba24",
+        "name": "Intensity Input",
+        "label": "Intensity Input",
+        "tooltip": "",
+        "group": "d7b74e7766b2aae6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "255",
+        "step": 1,
+        "className": "",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "31c09ed74ded12b3"
+            ]
+        ]
+    },
+    {
+        "id": "3599f4b3ff92f4af",
+        "type": "ui_text_input",
+        "z": "b3cdfc37265dba24",
+        "name": "Intensity Slider",
+        "label": "Intensity Slider",
+        "tooltip": "",
+        "group": "d7b74e7766b2aae6",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "31c09ed74ded12b3"
+            ]
+        ]
+    },
+    {
+        "id": "31c09ed74ded12b3",
+        "type": "function",
+        "z": "b3cdfc37265dba24",
+        "name": "",
+        "func": "msg.payload = {\"intensity\":msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [
+                "c77e8c739b8ec640",
+                "d50ceb0a792b3f95",
+                "cba1ea127cf5b21f"
+            ]
+        ]
+    },
+    {
+        "id": "cba1ea127cf5b21f",
+        "type": "ui_gauge",
+        "z": "b3cdfc37265dba24",
+        "name": "Intensity Guage",
+        "group": "d7b74e7766b2aae6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Intensity Guage",
+        "label": "units",
+        "format": "{{msg.payload.intensity}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "85",
+        "seg2": "170",
+        "className": "",
+        "x": 740,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "fdf528aa7c448b35",
+        "type": "serial-port",
+        "serialport": "COM4",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "d7b74e7766b2aae6",
+        "type": "ui_group",
+        "name": "ESP32 BuiltIn LED",
+        "tab": "08d00e0951b9a3d3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "08d00e0951b9a3d3",
+        "type": "ui_tab",
+        "name": "Switch LED",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
