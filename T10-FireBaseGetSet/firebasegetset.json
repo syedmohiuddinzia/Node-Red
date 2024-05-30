@@ -1,0 +1,311 @@
+[
+    {
+        "id": "e97be1e7d0f8f221",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b2363cee787d3da6",
+        "type": "firebase modify",
+        "z": "e97be1e7d0f8f221",
+        "name": "Firebase Int Set",
+        "firebaseconfig": "",
+        "childpath": "/esp/int1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "a3f05cda60d5c01a"
+            ]
+        ]
+    },
+    {
+        "id": "b92c2701646d20f4",
+        "type": "ui_text_input",
+        "z": "e97be1e7d0f8f221",
+        "name": "Int Set",
+        "label": "Int Set",
+        "tooltip": "",
+        "group": "d7b74e7766b2aae6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "b2363cee787d3da6"
+            ]
+        ]
+    },
+    {
+        "id": "2be392017cae6a59",
+        "type": "firebase modify",
+        "z": "e97be1e7d0f8f221",
+        "name": "Firebase Float Set",
+        "firebaseconfig": "",
+        "childpath": "/esp/float1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "a3f05cda60d5c01a"
+            ]
+        ]
+    },
+    {
+        "id": "ea5fe3a0e436604e",
+        "type": "ui_text_input",
+        "z": "e97be1e7d0f8f221",
+        "name": "Float Set",
+        "label": "Float Set",
+        "tooltip": "",
+        "group": "d7b74e7766b2aae6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "2be392017cae6a59"
+            ]
+        ]
+    },
+    {
+        "id": "fb806ceb349585e4",
+        "type": "firebase modify",
+        "z": "e97be1e7d0f8f221",
+        "name": "Firebase String Set",
+        "firebaseconfig": "",
+        "childpath": "/esp/string1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "a3f05cda60d5c01a"
+            ]
+        ]
+    },
+    {
+        "id": "e1672d73bd5cfc02",
+        "type": "ui_text_input",
+        "z": "e97be1e7d0f8f221",
+        "name": "String Set",
+        "label": "String Set",
+        "tooltip": "",
+        "group": "d7b74e7766b2aae6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "fb806ceb349585e4"
+            ]
+        ]
+    },
+    {
+        "id": "a3f05cda60d5c01a",
+        "type": "debug",
+        "z": "e97be1e7d0f8f221",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9a0d13f7901d7967",
+        "type": "firebase.on",
+        "z": "e97be1e7d0f8f221",
+        "name": "Firebase Int Get",
+        "firebaseconfig": "",
+        "childpath": "/esp/int2",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 600,
+        "y": 100,
+        "wires": [
+            [
+                "e301246607ca9e49",
+                "83b64e3eb80ae2b7"
+            ]
+        ]
+    },
+    {
+        "id": "e301246607ca9e49",
+        "type": "ui_text",
+        "z": "e97be1e7d0f8f221",
+        "group": "99b6cadd4b10e30f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Int Get",
+        "label": "Int Get",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 610,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "2f7d9038ec78fadd",
+        "type": "firebase.on",
+        "z": "e97be1e7d0f8f221",
+        "name": "Firebase Float Get",
+        "firebaseconfig": "",
+        "childpath": "/esp/float2",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 610,
+        "y": 200,
+        "wires": [
+            [
+                "8a4fc01032e22246",
+                "83b64e3eb80ae2b7"
+            ]
+        ]
+    },
+    {
+        "id": "8a4fc01032e22246",
+        "type": "ui_text",
+        "z": "e97be1e7d0f8f221",
+        "group": "99b6cadd4b10e30f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Float Get",
+        "label": "Float Get",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 620,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "cfccd08eb0384e35",
+        "type": "firebase.on",
+        "z": "e97be1e7d0f8f221",
+        "name": "Firebase String Get",
+        "firebaseconfig": "",
+        "childpath": "/esp/string2",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "2cfab11d076cee05",
+                "83b64e3eb80ae2b7"
+            ]
+        ]
+    },
+    {
+        "id": "2cfab11d076cee05",
+        "type": "ui_text",
+        "z": "e97be1e7d0f8f221",
+        "group": "99b6cadd4b10e30f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "String Get",
+        "label": "String Get",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 620,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "83b64e3eb80ae2b7",
+        "type": "debug",
+        "z": "e97be1e7d0f8f221",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d7b74e7766b2aae6",
+        "type": "ui_group",
+        "name": "Set",
+        "tab": "08d00e0951b9a3d3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "99b6cadd4b10e30f",
+        "type": "ui_group",
+        "name": "Get",
+        "tab": "08d00e0951b9a3d3",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "08d00e0951b9a3d3",
+        "type": "ui_tab",
+        "name": "FireBase",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
